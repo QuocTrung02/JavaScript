@@ -666,13 +666,13 @@ var conrses = [
   { id: 5, name: "QTM", coin: 0 },
 ];
 
-//// forEach:duyệt qua từng phần tử của mảng
+// forEach:duyệt qua từng phần tử của mảng
 // courses.forEach(function (course, index) {
 //   console.log(index, course);
 // });
 // =========================================
 
-//// every: Kiểm tra tất cả phần tử thuộc mảng phải thỏa mản 1 đk gì đó về về booleant
+// every: Kiểm tra tất cả phần tử thuộc mảng phải thỏa mản 1 đk gì đó về về booleant
 // var isFree = courses.every(function (course, index) {
 // console.log(index);
 // return course.coin === 0;
@@ -680,7 +680,7 @@ var conrses = [
 //   console.log(isFree);
 // =========================================
 
-//// some(): chỉ cần 1 phần tử trong mảng thỏa mản điều kiện trả về true
+// some(): chỉ cần 1 phần tử trong mảng thỏa mản điều kiện trả về true
 // var isFree = courses.some(function (course,index) {
 // console.log(index);
 //   return course.coin === 0;
@@ -688,14 +688,18 @@ var conrses = [
 // console.log(isFree);
 // =========================================
 
-////find(): Tìm kiếm trong arr nếu có trả về phần tử của mảng và dừng lại không kiểm tra phantu còn lại, nếu không có trả về undefined
-var course = courses.every(function (course, index) {
-  console.log(index);
-  return course.name ===  "ReactJs";
-});
-console.log(course);
-
+//find(): Tìm kiếm trong arr nếu có trả về phần tử của mảng và dừng lại không kiểm tra phantu còn lại, nếu không có trả về undefined
+// var course = courses.find(function (course, index) {
+//   return course.name ===  "ReactJs";
+// });
+// console.log(course);
 // =========================================
+// filter(): cũng khá giống find nhưng trả về hết những phần tử trong mảng nếu không có trả indefined
+var listCourses = courses.find(function (course, index) {
+  return course.name === "ReactJs";
+});
+console.log(listCourses);
+
 // =========================================
 // =========================================
 // =========================================
