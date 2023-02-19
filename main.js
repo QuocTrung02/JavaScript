@@ -663,7 +663,7 @@ var conrses = [
   { id: 2, name: "HTML,CSS", coin: 0 },
   { id: 3, name: "ReactJs", coin: 100 },
   { id: 4, name: "NodeJs", coin: 0 },
-  { id: 5, name: "QTM", coin: 0 },
+  { id: 5, name: "ReactJs", coin: 0 },
 ];
 
 // forEach:duyệt qua từng phần tử của mảng
@@ -695,7 +695,7 @@ var conrses = [
 // console.log(course);
 // =========================================
 // filter(): cũng khá giống find nhưng trả về hết những phần tử trong mảng nếu không có trả indefined
-var listCourses = courses.find(function (course, index) {
+var listCourses = courses.filter(function (course, index) {
   return course.name === "ReactJs";
 });
 console.log(listCourses);
