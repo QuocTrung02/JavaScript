@@ -727,45 +727,104 @@
 // Output: [{ name: 'Bóng rổ, like: 6 }, { name: 'Bóng đá, like: 10 }]
 
 // =========================================
-//Map(): Tạo ra 1 mảng mới có giá trị bằng mảng cũ 
+//Map(): Tạo ra 1 mảng mới có giá trị bằng mảng cũ
+// const sports = [
+//   {
+//     id: 1,
+//     name: "ReactJs",
+//     coin: 15,
+//   },
+//   {
+//     id: 2,
+//     name: "NodeJs",
+//     coin: 15,
+//   },
+//   {
+//     id: 3,
+//     name: "JavaScript",
+//     coin: 20,
+//   },
+//   {
+//     id: 4,
+//     name: "HTML,CSS",
+//     coin: 20,
+//   },
+//   {
+//     id: 5,
+//     name: "Angular",
+//     coin: 25,
+//   },
+// ];
+// var newCourses = sports.map(function (sports, index) {
+//   return {
+//     id: sports.id,
+//     name: `Khóa Học: ${sports.name}`,
+//     coin: sports.coin,
+//     coiText: `Giá: ${sports.coin}`,
+//   };
+// });
+// console.log(newCourses);
+// =========================================
+// reduce():
 const sports = [
   {
     id: 1,
     name: "ReactJs",
-    coin: 15,
+    coin: 200,
   },
   {
     id: 2,
     name: "NodeJs",
-    coin: 15,
+    coin: 150,
   },
   {
     id: 3,
     name: "JavaScript",
-    coin: 20,
+    coin: 250,
   },
   {
     id: 4,
     name: "HTML,CSS",
-    coin: 20,
+    coin: 250,
   },
   {
     id: 5,
     name: "Angular",
-    coin: 25,
+    coin: 250,
   },
 ];
 
-var newCourses = sports.map(function (sports, index) {
-  return {
-    id: sports.id,
-    name: `Khóa Học: ${sports.name}`,
-    coin: sports.coin,
-    coiText: `Giá: ${sports.coin}`,
-  };
-});
-console.log(newCourses);
-// =========================================
+// ---------------------------------
+// cach 1:
+// accumulator: biến lưu trữ
+// currentValue: giá trị hiện tại
+// currentIndex: trả về index
+// originArray: 
+// var i = 0;
+// function coiHandler(accumulator,currentValue,currentIndex,originArray) {
+  // i++;
+  // return accumulator + currentValue.coin;
+// };
+// var totalCoin = sports.reduce(coiHandler, 0);
+// console.log(totalCoin);
+
+// ---------------------------------
+// cach 2
+var totalCoin = courses.reduce(function(accumulator,currentValue){
+    return accumulator + currentValue.coin;
+},0)
+console.log(totalCoin);
+// ---------------------------------
+// cach 3:
+//dùng vòng lặp cơ bản để tính tỗng coin trong array
+// var allcoin = 0;
+// function addCoin(sports) {
+//     for (var i = 0; i < sports.length; i++) {
+//         allcoin += sports[i].coin;
+//     }
+//     return allcoin;
+// }
+// console.log("Tổng số coin Trong Arr:",addCoin(sports));
 // =========================================
 // =========================================
 // =========================================
