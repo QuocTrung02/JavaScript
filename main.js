@@ -655,7 +655,7 @@
 //   console.log(i);
 // }
 
-// --------------------------------------------------------------
+//-----------------------------------------------------
 //// working with array
 
 var conrses = [
@@ -670,37 +670,61 @@ var conrses = [
 // courses.forEach(function (course, index) {
 //   console.log(index, course);
 // });
-// =========================================
 
+// =========================================
 // every: Kiểm tra tất cả phần tử thuộc mảng phải thỏa mản 1 đk gì đó về về booleant
 // var isFree = courses.every(function (course, index) {
 // console.log(index);
 // return course.coin === 0;
 //   });
 //   console.log(isFree);
-// =========================================
 
+// =========================================
 // some(): chỉ cần 1 phần tử trong mảng thỏa mản điều kiện trả về true
 // var isFree = courses.some(function (course,index) {
 // console.log(index);
 //   return course.coin === 0;
 // });
 // console.log(isFree);
-// =========================================
 
+// =========================================
 //find(): Tìm kiếm trong arr nếu có trả về phần tử của mảng và dừng lại không kiểm tra phantu còn lại, nếu không có trả về undefined
 // var course = courses.find(function (course, index) {
 //   return course.name ===  "ReactJs";
 // });
 // console.log(course);
-// =========================================
-// filter(): cũng khá giống find nhưng trả về hết những phần tử trong mảng nếu không có trả indefined
-var listCourses = courses.filter(function (course, index) {
-  return course.name === "ReactJs";
-});
-console.log(listCourses);
 
 // =========================================
+// filter(): cũng khá giống find nhưng trả về hết những phần tử trong mảng nếu không có trả indefined
+// var listCourses = courses.filter(function (course, index) {
+//   return course.name === "ReactJs";
+// });
+// console.log(listCourses);
+
+// =====================================================
+// Bài tập:Để vượt qua thử thách này, hãy tạo hàm getMostFavoriteSport có 1 tham số (F8 sẽ gọi hàm này và luôn truyền đối số là 1 array). Hàm getMostFavoriteSport sẽ trả về các môn thể thao có điểm số yêu thích lớn hơn 5.
+const sports = [
+  {
+    name: "Bóng rổ",
+    like: 6,
+  },
+  {
+    name: "Bơi lội",
+    like: 5,
+  },
+  {
+    name: "Bóng đá",
+    like: 10,
+  },
+];
+function getMostFavoriteSport(sports) {
+  return sports.filter(function (sports, index) {
+    return sports.like > 5;
+  });
+}
+// Kỳ vọng
+console.log(getMostFavoriteSport(sports));
+// Output: [{ name: 'Bóng rổ, like: 6 }, { name: 'Bóng đá, like: 10 }]
 // =========================================
 // =========================================
 // =========================================
