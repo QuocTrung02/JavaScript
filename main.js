@@ -658,26 +658,26 @@
 //-----------------------------------------------------
 //// working with array
 
-var conrses = [
-  { id: 1, name: "JavaScript", coin: 250 },
-  { id: 2, name: "HTML,CSS", coin: 0 },
-  { id: 3, name: "ReactJs", coin: 100 },
-  { id: 4, name: "NodeJs", coin: 0 },
-  { id: 5, name: "ReactJs", coin: 0 },
-];
+// var conrse = [
+//   { id: 1, name: "JavaScript", coin: 250 },
+//   { id: 2, name: "HTML,CSS", coin: 0 },
+//   { id: 3, name: "ReactJs", coin: 100 },
+//   { id: 4, name: "NodeJs", coin: 0 },
+//   { id: 5, name: "ReactJs", coin: 0 },
+// ];
 
 // forEach:duyệt qua từng phần tử của mảng
-// courses.forEach(function (course, index) {
+// course.forEach(function (course, index) {
 //   console.log(index, course);
 // });
 
 // =========================================
 // every: Kiểm tra tất cả phần tử thuộc mảng phải thỏa mản 1 đk gì đó về về booleant
-// var isFree = courses.every(function (course, index) {
-// console.log(index);
-// return course.coin === 0;
-//   });
-//   console.log(isFree);
+// var isFree = course.every(function (course, index) {
+//   console.log(index);
+//   return course.coin === 0;
+// });
+// console.log(isFree);
 
 // =========================================
 // some(): chỉ cần 1 phần tử trong mảng thỏa mản điều kiện trả về true
@@ -703,29 +703,68 @@ var conrses = [
 
 // =====================================================
 // Bài tập:Để vượt qua thử thách này, hãy tạo hàm getMostFavoriteSport có 1 tham số (F8 sẽ gọi hàm này và luôn truyền đối số là 1 array). Hàm getMostFavoriteSport sẽ trả về các môn thể thao có điểm số yêu thích lớn hơn 5.
+// const sports = [
+//   {
+//     name: "Bóng rổ",
+//     like: 6,
+//   },
+//   {
+//     name: "Bơi lội",
+//     like: 5,
+//   },
+//   {
+//     name: "Bóng đá",
+//     like: 10,
+//   },
+// ];
+// function getMostFavoriteSport(sports) {
+//   return sports.filter(function (sports, index) {
+// return sports.like > 5;
+//   });
+// }
+//// Kỳ vọng
+// console.log(getMostFavoriteSport(sports));
+// Output: [{ name: 'Bóng rổ, like: 6 }, { name: 'Bóng đá, like: 10 }]
+
+// =========================================
+//Map(): Tạo ra 1 mảng mới có giá trị bằng mảng cũ 
 const sports = [
   {
-    name: "Bóng rổ",
-    like: 6,
+    id: 1,
+    name: "ReactJs",
+    coin: 15,
   },
   {
-    name: "Bơi lội",
-    like: 5,
+    id: 2,
+    name: "NodeJs",
+    coin: 15,
   },
   {
-    name: "Bóng đá",
-    like: 10,
+    id: 3,
+    name: "JavaScript",
+    coin: 20,
+  },
+  {
+    id: 4,
+    name: "HTML,CSS",
+    coin: 20,
+  },
+  {
+    id: 5,
+    name: "Angular",
+    coin: 25,
   },
 ];
-function getMostFavoriteSport(sports) {
-  return sports.filter(function (sports, index) {
-    return sports.like > 5;
-  });
-}
-// Kỳ vọng
-console.log(getMostFavoriteSport(sports));
-// Output: [{ name: 'Bóng rổ, like: 6 }, { name: 'Bóng đá, like: 10 }]
-// =========================================
+
+var newCourses = sports.map(function (sports, index) {
+  return {
+    id: sports.id,
+    name: `Khóa Học: ${sports.name}`,
+    coin: sports.coin,
+    coiText: `Giá: ${sports.coin}`,
+  };
+});
+console.log(newCourses);
 // =========================================
 // =========================================
 // =========================================
