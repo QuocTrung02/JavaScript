@@ -793,29 +793,18 @@ const sports = [
     coin: 250,
   },
 ];
-
-// ---------------------------------
-// cach 1:
 // accumulator: biến lưu trữ
 // currentValue: giá trị hiện tại
 // currentIndex: trả về index
 // originArray: 
-// var i = 0;
-// function coiHandler(accumulator,currentValue,currentIndex,originArray) {
-  // i++;
-  // return accumulator + currentValue.coin;
-// };
-// var totalCoin = sports.reduce(coiHandler, 0);
-// console.log(totalCoin);
 
-// ---------------------------------
-// cach 2
-var totalCoin = courses.reduce(function(accumulator,currentValue){
+// cach 1
+var totalCoin = sports.reduce(function(accumulator,currentValue){
     return accumulator + currentValue.coin;
 },0)
 console.log(totalCoin);
 // ---------------------------------
-// cach 3:
+// cach 2:
 //dùng vòng lặp cơ bản để tính tỗng coin trong array
 // var allcoin = 0;
 // function addCoin(sports) {
