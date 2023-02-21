@@ -31,3 +31,5 @@ callback:       Gọi lại
 every:          tất cả
 name:           Tên
 total:          Tổng
+value:          Giá trị
+param:          Thông Số
