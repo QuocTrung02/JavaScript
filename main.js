@@ -929,6 +929,15 @@
 // }
 // Expected results
 // console.log(calculateRating(watchList)); // Output: 8.675
-// =========================================
 
+// =========================================
+// Thực hành String/Array includes() method
+
+var cars = ['Rolls-Royce', 'Mercedes', 'Lexus', 'BMW', 'Audi'];
+function checkCar(cars) {
+   return cars.includes('Mercedes', 2);
+}
+
+console.log(checkCar(cars)); // Output: false 
+// vì Mercedes nằm ở vị trí thứ 1
 // =========================================
