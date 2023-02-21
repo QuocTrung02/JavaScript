@@ -30,3 +30,4 @@ methord:        Phương pháp
 callback:       Gọi lại
 every:          tất cả
 name:           Tên
+total:          Tổng
