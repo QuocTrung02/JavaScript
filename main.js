@@ -933,11 +933,49 @@
 // =========================================
 // Thực hành String/Array includes() method
 
-var cars = ['Rolls-Royce', 'Mercedes', 'Lexus', 'BMW', 'Audi'];
-function checkCar(cars) {
-   return cars.includes('Mercedes', 2);
-}
+// var cars = ["Rolls-Royce", "Mercedes", "Lexus", "BMW", "Audi"];
+// function checkCar(cars) {
+//   return cars.includes("Mercedes", 2);
+// }
 
-console.log(checkCar(cars)); // Output: false 
+// console.log(checkCar(cars)); // Output: false
 // vì Mercedes nằm ở vị trí thứ 1
+
+// ====================================================
+// CallBack:là hàm Function được truyền qua đối số khi gọi hàm khác
+// 1. callback là hàm
+// 2. được truyền qua đối số
+
+// Bài Tập:hoàn thành function sumCb và tạo thêm các function subCb, multiCb và divCb.
+
+// function sumCb(a, b) {
+//   return a + b;
+// }
+// function subCb(a, b) {
+//   return a - b;
+// }
+// function multiCb(a, b) {
+//   return a * b;
+// }
+// function divCb(a, b) {
+//   return a / b;
+// }
+// function caculate(a, b, cb) {
+//   return cb(a, b);
+// }
+
+// Expected results
+// caculate(1, 2, sumCb); // Output: 3
+// caculate(1, 2, subCb); // Output: -1
+// caculate(1, 2, multiCb); // Output: 2
+// caculate(3, 1, divCb); // Output: 3
+
+// =========================================
+
+// =========================================
+
+// =========================================
+
+// =========================================
+
 // =========================================
