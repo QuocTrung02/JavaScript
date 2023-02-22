@@ -301,22 +301,44 @@
 
 // 1.3
 //Object prototype - Basic
-//Thêm sau khi hàm được tạo ra
-// function User(fistName,lastName,avatar){ //hoặc var User= function(các tham số)
-// this.fistName = fistName;
-// this.lastName = lastName;
-// this.avatar = avatar ;
+/* object prototype - basic
+1 Prototype là gì ??  
+  Object prototype là nguyên mẫu để tạo nên 1 đối tượng
+  
+  Nguyên liệu 
+  Add được bên ngoài khi đối tượng được tạo ra
+  Cú pháp thêm thộc tính vào Object (tất cả các phương thức và thuộc tính được thêm vào bằng prototype sẽ có ở trong "list" _proto_ )
+ 
+  (object).Prototype.(method) 
+  có thể sử dụng dấu "." để truy cập vào trong thuộc tính đó bằng cú phaps
+  (Object).(method)
+  
+2 Sử dụng khi nào ?? 
+  sau khi function được tạo ra (sau khi khởi tạo đối tượng)
+  khi nó là function mới truy cập được những đối tượng được thêm vào sau khi function được  tạo ra 
 
-// //tạo hàm function
-// this.getName = function() {
-// return `${this.fistName} ${this.lastName}`
+*/
+// function User(fristName, lastName, avatar){
+//   this.fristName = fristName ;// định nghĩa đối tượng
+//   this.lastNam = lastName ;
+//   this.avatar = avatar;
+//   this.getName =  function() {
+//       return `${this.fristName } ${this.lastName}`;
+//   }
 // }
+// User.prototype.className ='F8';
+// User.prototype.getClassName =function(){
+//   return this.className;
 // }
-// var parrot = new User('Trung','Đỗ','Xinh');
-// //vd
-// User.prototype.className = 'Trung';
-// console.log(parrot.className);
-// console.log(parrot)
+
+// var author = new User('Son','Dang','Avatar');
+// var user = new User('tran','tien','avatar');
+// var user2 = new User('thai','nhi','avatar2')
+// ocbject prototype sử dụng để add đối tượng từ bên ngoài
+// console.log(author)
+// console.log(user2)
+// console.log(user.className)
+
 // -------------------------------------------------------------------
 
 // Làm bài tập tại đây
@@ -991,24 +1013,24 @@
 //   console.log(index, courses);
 // });
 
-// mỗi lần lặp qua truyền 1 callback vào mỗi lần lặp qua thì callback lại và result nhận kq lại từ callback push kq vào 1 mãng trống và return vào mảng 
+// mỗi lần lặp qua truyền 1 callback vào mỗi lần lặp qua thì callback lại và result nhận kq lại từ callback push kq vào 1 mãng trống và return vào mảng
 
-Array.prototype.map = function(callback) {
-  var output = [], arrayLength = this.length;
-
-  for (var i = 0; i < arrayLength; i++) {
-    var result = callback(this[i], i); //this == courses
-    output.push(result);
-  }
-  return output;
-};
-
-var courses = ["JavaScript", "PHP", "Ruby"];
-
-var htmls = courses.map(function (course) {
-  return `<h2>${course}</h2>`
-});
-console.log(htmls.join(''));
+// Array.prototype.map = function(callback) {
+// var output = [], arrayLength = this.length;
+//
+// for (var i = 0; i < arrayLength; i++) {
+// var result = callback(this[i], i); //this == courses
+// output.push(result);
+// }
+// return output;
+// };
+//
+// var courses = ["JavaScript", "PHP", "Ruby"];
+//
+// var htmls = courses.map(function (course) {
+// return `<h2>${course}</h2>`
+// });
+// console.log(htmls.join(''));
 // ---------------
 // var courses = ["JavaScript", "PHP", "Ruby"];
 // var htmls = courses.map(function (course) {
@@ -1016,7 +1038,76 @@ console.log(htmls.join(''));
 // });
 // console.log(htmls.join(""));
 // =========================================
+// viết 1 myApp dựa theo code này
+// Expected results
+// const numbers = [1, 2, 3];
+
+// console.log(numbers.myMap(function (number) {
+//     return number * 2;
+// })) // Output: [2, 4, 6]
+
+// console.log(numbers.myMap(function (number, index) {
+//     return number * index;
+// })) // Output: [0, 2, 6]
+
+// bài làm
+// Array.prototype.myMap = function (cb) { // cb = a
+// var numLength = this.length
+// var output = []
+// for (var i = 0; i < numLength ; ++i) {
+// var out = cb(this[i], i); // number = this(1), i = b
+// console. log(out); // được kēt quả 1 3 5 như hình
+// output.push(out)
+// };
+// return output;
+// }
+// Expected results
+// const numbers = [1, 2, 3];
+// var a = function (number,b) {
+// return number + b;
+// };
+// console.log(numbers.myMap(a)) // Output: [1, 3, 5]
 
 // =========================================
-
+Array.prototype.filter2 = function (callback) {
+  var output = [];
+  for (var index in this) {
+    if (this.hasOwnProperty(index)) {
+      if (callback(this[index])) {
+        output.push(this[index]);
+      }
+    }
+  }
+  return output;
+};
+var courses = [
+  {
+    name: "JavaScript",
+    coin: 680,
+  },
+  {
+    name: "PHP",
+    coin: 700,
+  },
+  {
+    name: "React",
+    coin: 900,
+  },
+  {
+    name: "html , css",
+    coin: 950,
+  },
+];
+var filterCourses = courses.filter2(function (course, index, array) {
+  return course.coin > 700;
+});
+console.log(filterCourses);
 // =========================================
+Array.prototype.myFilter = function(callback) {
+   var filteredArray = [];
+    for (var i = 0; i < this.length; i++) {
+       if (callback(this[i], i, this)) {
+         filteredArray.push(this[i]); 
+        } 
+      }
+       return filteredArray; };
