@@ -84,7 +84,7 @@
 //];
 //console.log('myArray: ',myArray);
 //console.log(typeof myArray); // hàm kiểm tra kiểu dữ liệu
-// -------------------------------------------------------------------
+// -------------------------------------------------
 // function writeLog() {
 // for (var param of arguments) {
 // console.log(param, '-')
@@ -942,7 +942,7 @@
 // vì Mercedes nằm ở vị trí thứ 1
 
 // ====================================================
-// CallBack:là hàm Function được truyền qua đối số khi gọi hàm khác
+// CallBack phần 1:là hàm Function được truyền qua đối số khi gọi hàm khác
 // 1. callback là hàm
 // 2. được truyền qua đối số
 
@@ -971,9 +971,50 @@
 // caculate(3, 1, divCb); // Output: 3
 
 // =========================================
+// Callback Phần 2:
+// 1.Là Hàm
+// 2.Truyền qua đối số
+// 3.Được gọi lại( Trong hàm nhận đối số)
 
 // =========================================
+// VD1:
+// var courses = ["JavaScript", "PHP", "Ruby"];
 
+// Array.prototype.map = function (callback) {
+//   var arrayLength = this.length;
+//   for (var i = 0; i < arrayLength; i++) {
+//     callback(this[i], i); //this == courses
+//   }
+// };
+
+// courses.map(function (courses, index) {
+//   console.log(index, courses);
+// });
+
+// mỗi lần lặp qua truyền 1 callback vào mỗi lần lặp qua thì callback lại và result nhận kq lại từ callback push kq vào 1 mãng trống và return vào mảng 
+
+Array.prototype.map = function(callback) {
+  var output = [], arrayLength = this.length;
+
+  for (var i = 0; i < arrayLength; i++) {
+    var result = callback(this[i], i); //this == courses
+    output.push(result);
+  }
+  return output;
+};
+
+var courses = ["JavaScript", "PHP", "Ruby"];
+
+var htmls = courses.map(function (course) {
+  return `<h2>${course}</h2>`
+});
+console.log(htmls.join(''));
+// ---------------
+// var courses = ["JavaScript", "PHP", "Ruby"];
+// var htmls = courses.map(function (course) {
+// return `<h2>${course}</h2>`;
+// });
+// console.log(htmls.join(""));
 // =========================================
 
 // =========================================
